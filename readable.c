@@ -20,8 +20,7 @@ P(x){putchar(x);}
 M(x){P(x);P(x);P(x);}
 typedef int I;
 I main(I argc, char** argv){
-    I a=atoi(argv[1]);
-    I w=4*a;
+    I w=4*atoi(argv[1]);
     I d=w*15;
     I c=d+54;
     char h[]={0x42,0x4D, //BMP magic
@@ -42,7 +41,7 @@ I main(I argc, char** argv){
     for (I i=0;i<54;i++)P(h[i]);
     float f[]={0,1,0,1,0,1,1,1,.7,1,1,1,.7,1,.5,.5,0,1,1,1}; //this is our among us guy! But a bit backwards.
     for (I i=0;i<20;i+=4){ //for each line
-        for (I j=0;j<a;j++){ //for each amogus
+        for (I j=0;j<w/4;j++){ //for each amogus
             for (I k=0;k<4;k++){ //for each pixel in the line
                 M((I)(f[i+k]*255)); //print each byte 3 times
             }
