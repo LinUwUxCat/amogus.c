@@ -18,11 +18,11 @@ B W B W
 
 P(x){putchar(x);}
 M(x){P(x);P(x);P(x);}
-typedef int I;
-I main(I argc, char** argv){
-    I w=4*atoi(argv[1]);
-    I d=w*15;
-    I c=d+54;
+i=0;j;k;w;c;d;
+main(int _, char** argv){
+    w=4*atoi(argv[1]);
+    d=w*15;
+    c=d+54;
     char h[]={0x42,0x4D, //BMP magic
     c&255,c>>8&255,c>>16&255,c>>24&255, //file size (12*argv[1]*5 + header (54))
     0,0,0,0, // any bullshit
@@ -38,12 +38,12 @@ I main(I argc, char** argv){
     0,0,0,0, //colors in the palette (0 = default = 2^24, which is what we want here)
     0,0,0,0 //important colors (0 = all of em)
     }; //end of header
-    for (I i=0;i<54;i++)P(h[i]);
+    for (;i<54;i++)P(h[i]);
     float f[]={0,1,0,1,0,1,1,1,.7,1,1,1,.7,1,.5,.5,0,1,1,1}; //this is our among us guy! But a bit backwards.
-    for (I i=0;i<20;i+=4){ //for each line
-        for (I j=0;j<w/4;j++){ //for each amogus
-            for (I k=0;k<4;k++){ //for each pixel in the line
-                M((I)(f[i+k]*255)); //print each byte 3 times
+    for (i=0;i<20;i+=4){ //for each line
+        for (j=0;j<w/4;j++){ //for each amogus
+            for (k=0;k<4;k++){ //for each pixel in the line
+                M((int)(f[i+k]*255)); //print each byte 3 times
             }
         }
     }
